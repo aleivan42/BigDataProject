@@ -11,9 +11,11 @@ pacman::p_load(
 )
 
 # 2. CONFIGURAZIONE ----
-text_path <- "C:/Users/aleca/Documents/BigDataProject/texts_folder"
-output_dir <- "C:/Users/aleca/Documents/BigDataProject/results"  # Nuova cartella principale
-model_file <- "english-ewt-ud-2.5-191206.udpipe"
+
+text_path  <- here("texts_folder")
+output_dir <- here("results")
+model_file <- here("english-ewt-ud-2.5-191206.udpipe")
+
 
 # 3. CREAZIONE STRUTTURA CARTELLE ----
 dir.create(file.path(output_dir, "processed_data"), showWarnings = FALSE)
@@ -113,9 +115,9 @@ if (sum(final_check) > 0) {
   write.csv(warning_msg, 
             file.path(output_dir, "stats", "residual_stopwords.csv"),
             row.names = FALSE)
-  cat("⚠️ Stopwords residue salvate in: stats/residual_stopwords.csv\n")
+  cat("Stopwords residue salvate in: stats/residual_stopwords.csv\n")
 } else {
-  cat("✅ Zero stopwords residue rilevate\n")
+  cat("Z ero stopwords residue rilevate\n")
 }
 
 # 9. ANALISI E SALVATAGGIO ----
@@ -127,16 +129,16 @@ top_clean <- clean_texts %>%
   quanteda.textstats::textstat_frequency(n = 20)
 
 write.csv(top_clean, output_top_csv, row.names = FALSE)
-cat("\n📊 Top 20 lemmi salvati in: stats/top_20_lemmi.csv\n")
+cat("\n Top 20 lemmi salvati in: stats/top_20_lemmi.csv\n")
 
 # Salvataggio dati completi
 saveRDS(clean_texts, output_file_rds)
-cat("\n💾 Dati completi salvati in: processed_data/lemmatized_texts_final.rds\n")
+cat("\n Dati completi salvati in: processed_data/lemmatized_texts_final.rds\n")
 
 # Esempio di output testuale
 sample_content <- substr(clean_texts$lemma_text[1], 1, 1000)
 writeLines(sample_content, sample_output)
-cat("\n📄 Esempio di testo salvato in: samples/sample_lemmatized.txt\n")
+cat("\n Esempio di testo salvato in: samples/sample_lemmatized.txt\n")
 
 # 10. RIEPILOGO ----
 cat("\n=== RIEPILOGO OUTPUT ===\n")

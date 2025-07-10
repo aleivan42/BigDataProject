@@ -1,0 +1,32 @@
+if (!require("pacman")) install.packages("pacman")
+
+pacman::p_load(
+  tidyverse,
+  dplyr,
+  stringr,
+  forcats,
+  reshape2,
+  here,
+  quanteda,
+  quanteda.textplots,
+  quanteda.dictionaries,
+  tidytext,
+  readtext,
+  spacyr,
+  udpipe,
+  text2vec,
+  rio,
+  topicmodels,
+  ggplot2,
+  ggrepel,
+  scales,
+  viridis,
+  factoextra,
+  glmnet,
+  e1071,
+  ranger,
+  irlba,
+  Rtsne,
+  cluster,
+  stats
+)

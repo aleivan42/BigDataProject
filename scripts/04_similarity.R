@@ -1,13 +1,13 @@
 # === SELEZIONE DEI DOCUMENTI PIÙ SIGNIFICATIVI ===
 # Calcola la similarità media per documento
 doc_similarity <- rowMeans(sim_matrix)
-top_docs <- names(sort(doc_similarity, decreasing = TRUE)[1:20])  # Parentesi chiusa correttamente qui
+top_docs <- names(sort(doc_similarity, decreasing = TRUE)[1:20])
 
 # Filtra la matrice per i documenti selezionati
 sim_matrix_filtered <- sim_matrix_ordered[rownames(sim_matrix_ordered) %in% top_docs, 
                                           colnames(sim_matrix_ordered) %in% top_docs]
 
-# === VERSIONE 1: HEATMAP SEMPLIFICATA ===
+# === HEATMAP ===
 sim_df_filtered <- as.data.frame(sim_matrix_filtered) %>%
   rownames_to_column(var = "Doc1") %>%
   pivot_longer(cols = -Doc1, names_to = "Doc2", values_to = "Similarity") %>%

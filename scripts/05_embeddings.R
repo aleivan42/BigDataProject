@@ -1,23 +1,10 @@
-# ==== LIBRERIE ====
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(
-  quanteda,        # NLP framework
-  text2vec,        # Word embeddings
-  ggplot2,         # Visualizzazioni
-  Rtsne,           # t-SNE
-  dplyr,           # Manipolazione dati
-  stringr,         # String operations
-  viridis,         # Scale di colore
-  ggrepel,         # Etichette testuali
-  stats,           # Funzioni statistiche
-  cluster,         # Analisi cluster
-  factoextra       # Visualizzazione cluster
-)
-
 # ==== PARAMETRI ====
-input_rds <- "C:/Users/aleca/Documents/BigDataProject/results/processed_data/lemmatized_texts_final.rds"
-output_dir <- "C:/Users/aleca/Documents/BigDataProject/results/embeddings/"
+library(here)
+
+input_rds   <- here("results", "processed_data", "lemmatized_texts_final.rds")
+output_dir  <- here("results", "embeddings")
 dir.create(output_dir, showWarnings = FALSE, recursive = TRUE)
+
 
 # Parametri modificabili
 top_n_words <- 100      # Numero parole da visualizzare

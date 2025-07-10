@@ -1,14 +1,5 @@
-# === 0. LIBRERIE NECESSARIE ===
-library(quanteda)
-library(topicmodels)
-library(tidytext)
-library(tidyverse)
-library(ggplot2)
-library(scales)
-library(forcats)
-
 # === 1. CARICAMENTO TESTI LEMMATIZZATI ===
-clean_texts <- readRDS("C:/Users/aleca/Documents/BigDataProject/results/processed_data/lemmatized_texts_final.rds")
+clean_texts <- readRDS(here("results", "processed_data", "lemmatized_texts_final.rds"))
 
 dfm <- corpus(clean_texts, text_field = "lemma_text") %>%
   tokens() %>%

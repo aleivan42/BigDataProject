@@ -1,8 +1,4 @@
-clean_texts <- readRDS("C:/Users/aleca/Documents/BigDataProject/results/processed_data/lemmatized_texts_final.rds")
-
-# Carico le librerie necessarie
-library(quanteda)
-library(ggplot2)
+clean_texts <- readRDS(here("results", "processed_data", "lemmatized_texts_final.rds"))
 
 # Creazione del corpus e DFM
 corpus_lemmatized <- corpus(clean_texts, text_field = "lemma_text")
