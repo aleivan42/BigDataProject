@@ -70,7 +70,7 @@ pca <- prcomp(filtered_vectors, center = TRUE, scale. = TRUE)
 pca_df <- as.data.frame(pca$x[, 1:2])
 pca_df$word <- rownames(filtered_vectors)
 
-# Visualizzazione PCA migliorata
+# Visualizzazione PCA
 p1 <- ggplot(pca_df, aes(x = PC1, y = PC2, label = word)) +
   geom_point(color = "#2E86C1", alpha = 0.8, size = 2.5) +
   geom_text_repel(
@@ -116,7 +116,7 @@ tsne_df <- data.frame(
   word = rownames(filtered_vectors)
 )
 
-# Visualizzazione t-SNE migliorata
+# Visualizzazione t-SNE
 p2 <- ggplot(tsne_df, aes(x = X, y = Y, label = word)) +
   geom_point(color = "#E74C3C", alpha = 0.8, size = 2.5) +
   geom_text_repel(
@@ -200,7 +200,7 @@ p3 <- ggplot(pca_df, aes(x = PC1, y = PC2, color = cluster, label = word)) +
     legend.position = "bottom"
   )
 
-# Visualizzazione cluster t-SNE migliorata
+# Visualizzazione cluster t-SNE
 p4 <- ggplot(tsne_df, aes(x = X, y = Y, color = cluster, label = word)) +
   geom_point(alpha = 0.8, size = 2.5) +
   geom_text_repel(
