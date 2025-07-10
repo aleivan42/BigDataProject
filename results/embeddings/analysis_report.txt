@@ -1,0 +1,12 @@
+=== REPORT ANALISI EMBEDDINGS ===
+
+Parametri usati:
+- Dimensionalità embeddings: 50 
+- Top parole analizzate: 100 
+- Perplexity t-SNE: 30 
+- Numero cluster ottimale: 3 
+
+Statistiche base:
+- Parole totali nel vocabolario: 17602 
+- Parole filtrate per analisi: 100 
+- Varianza spiegata PCA (2 componenti): 20.7 %
